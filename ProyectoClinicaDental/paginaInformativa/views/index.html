@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinica dental</title>
+    <link rel="stylesheet" href="../style/others.css">
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+<body>
+    <div class=" dark:bg-gradient-to-r from-gray-700 to-slate-400 w-full h-1"></div>
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 h-40">
+            <a class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="../images/icono.png" class="h-8" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Clinica dental</span>
+            </a>
+            <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a href="../../views/login.html">Iniciar sesión</a>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <nav class="bg-gray-50 dark:bg-gray-700">
+        <div class="max-w-screen-xl px-4 py-3 mx-auto">
+            <div class="flex items-center justify-center">
+                <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-xl">
+                    <li>
+                        <a href="#SeccionQuinesSomos" class="text-gray-900 dark:text-white hover:underline" >Quienes somos</a>
+                    </li>
+                    <li>
+                        <a href="#SeccionTratamientos" class="text-gray-900 dark:text-white hover:underline">Tratamientos</a>
+                    </li>
+                    <li>
+                        <a href="#seccionEspecialidades" class="text-gray-900 dark:text-white hover:underline">Especialidades</a>
+                    </li>
+                    <li>
+                        <a href="#seccionContacto" class="text-gray-900 dark:text-white hover:underline">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="carrusel" class="h-50 w-full bg-white">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="../images/carrusel1.webp" alt="Image 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="../images/carrusel2.webp" alt="Image 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="../images/carrusel3.webp" alt="Image 3">
+            </div>
+        
+            <div class="carousel-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    let slideIndex = 0;
+
+    showSlides();
+
+    function showSlides() {
+        let slides = document.querySelectorAll('.carousel-slide');
+        let dots = document.querySelectorAll('.dot');
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = 'none';
+            dots[i].classList.remove('active-dot');
+        }
+
+        slideIndex++;
+
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].classList.add('active-dot');
+
+        setTimeout(showSlides, 2000); // Cambia la imagen cada 2 segundos
+    }
+
+    document.querySelectorAll('.dot').forEach(function (dot, index) {
+        dot.addEventListener('click', function () {
+            slideIndex = index;
+            showSlides();
+        });
+    });  
+   });
+    </script>
+    <div id="SeccionQuinesSomos" class="mt-16 mb-16">
+        <h1 class="font-semibold text-center text-4xl text-gray-900">Quienes somos?</h1>
+        <div class="flex justify-center">
+            <div class="w-36 h-1 bg-gray-900 flex justify-center mt-7 shadow-md"></div>
+        </div>
+        <p class="font-semibold text-center  text-gray-900 mt-5"> nos dedicamos con pasión a ofrecer servicios odontológicos de alta calidad, personalizados para cada paciente. Nuestra misión es promover sonrisas saludables con un enfoque integral en la conexión <br> entre la salud bucal y el bienestar general. Como empresa comprometida socialmente, contribuimos a la comunidad mediante programas educativos y acceso a la atención dental. Contamos con un equipo <br> profesional altamente capacitado, tecnología avanzada y nos esforzamos por crear un ambiente acogedor. <br>
+            Transformamos sonrisas y mejoramos vidas, brindando atención excepcional con confianza, transparencia y un toque humano. ¡Gracias por elegirnos para su cuidado dental! </p>
+    </div>
+    <div class="dynamic-image-container">
+        <img class="dynamic-image" src="../images/image1.webp" alt="image-1">
+    </div>
+    <div id="SeccionTratamientos" class="mt-16 mb-16">
+        <h1 class="font-sans text-center text-4xl text-gray-900">Tratamientos</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <!-- Primer cuadro de texto -->
+            <div class="bg-white p-6 rounded-md shadow-md">
+              <h2 class="text-lg font-semibold text-gray-900 mb-4">Limpieza</h2>
+              <p class="text-gray-700">Contamos con limpeizas sencillas pero efectivas</p>
+            </div>
+               <!-- Segundo cuadro de texto -->
+            <div class="bg-white p-6 rounded-md shadow-md">
+             <h2 class="text-lg font-semibold text-gray-900 mb-4">Revisiones</h2>
+             <p class="text-gray-700">Tambien contamos con revisiones y otros aspectos <br>
+            importantes para su salud bucal</p>
+            </div>
+           <!-- Tercer cuadro de texto -->
+           <div class="bg-white p-6 rounded-md shadow-md">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Ortodoncia</h2>
+            <p class="text-gray-700">Tenemos servicio de ortoncia</p>
+          </div>
+        <!-- Cuarto cuadro de texto -->
+        <div class="bg-white p-6 rounded-md shadow-md">
+           <h2 class="text-lg font-semibold text-gray-900 mb-4">Caries</h2>
+           <p class="text-gray-700">Somos efectivos eliminando caries </p>
+        </div>
+        <!-- Quinto cuadro de texto -->
+        <div class="bg-white p-6 rounded-md shadow-md">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Coronas</h2>
+          <p class="text-gray-700">Colocamos coronas a sus dientes</p>
+        </div>
+             <!-- Sexto cuadro de texto -->
+        <div class="bg-white p-6 rounded-md shadow-md">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Entre otros tratamientos</h2>
+          <p class="text-gray-700">Ademas de otros tratamientos</p>
+        </div>
+    </div>
+    <div class="image-container mt-16">
+        <img class="image-static" src="../images/image3.webp" alt="image3">
+    </div>
+    <div id="seccionEspecialidades" class="mt-16 mb-16">
+        <h1 class="font-sans text-center text-4xl text-gray-900">Especialidades</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <!-- Primer cuadro de texto -->
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Odontología Restaurativa</h2>
+                <p class="text-gray-700">Enfoque en restaurar la salud bucal mediante tratamientos como empastes, incrustaciones y endodoncias.</p>
+            </div>
+    
+            <!-- Segundo cuadro de texto -->
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Implantes Dentales</h2>
+                <p class="text-gray-700">Soluciones permanentes para reemplazar dientes perdidos, ofreciendo una sonrisa completa y funcional.</p>
+            </div>
+    
+            <!-- Tercer cuadro de texto -->
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Periodoncia</h2>
+                <p class="text-gray-700">Especialidad dedicada al cuidado de las encías y tejidos de soporte dental, previniendo y tratando enfermedades periodontales.</p>
+            </div>
+    
+            <!-- Cuarto cuadro de texto -->
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Cirugía Oral</h2>
+                <p class="text-gray-700">Intervenciones quirúrgicas para abordar problemas dentales complejos, como extracciones de muelas del juicio y cirugía preprotésica.</p>
+            </div>
+    
+            <!-- Quinto cuadro de texto -->
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Ortodoncia</h2>
+                <p class="text-gray-700">Corrección de la alineación dental y maloclusiones mediante aparatos ortopédicos y alineadores transparentes.</p>
+            </div>
+    
+            <!-- Sexto cuadro de texto -->
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Blanqueamiento Dental</h2>
+                <p class="text-gray-700">Procedimientos seguros y efectivos para mejorar el color de los dientes y lograr una sonrisa más brillante.</p>
+            </div>
+        </div>
+    </div>
+    <div class="mt-16">
+        <p></p>
+    </div>
+    <div class="dynamic-image-container">
+        <img class="dynamic-image" src="../images/image2.webp" alt="image-2">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dynamicImageContainers = document.querySelectorAll('.dynamic-image-container');
+            var threshold = 500;
+
+            function handleScroll() {
+                dynamicImageContainers.forEach(function (container) {
+                    var dynamicImage = container.querySelector('.dynamic-image');
+                    var rect = container.getBoundingClientRect();
+                    var translateY = Math.min(0, rect.top - threshold);
+
+                    dynamicImage.style.transform = 'translateY(' + translateY + 'px)';
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll);
+        });
+    </script>
+    <div id="seccionContacto" class="h-50">
+        <h1 class="font-sans text-center text-4xl text-gray-900 mt-16">Contacto</h1>
+        <div class="flex items-center h-52 mt-5">
+            <div class="w-1/2">
+                <p class="flex-1 text-right font-sans pr-10">Calle tabasco 323, Ciudad Obregon, Sonora</p>
+            </div>
+            <div class="h-full border-l-2 border-gradient"></div>
+            <div class="flex justify-end w-1/2">
+                <p class="flex-1 text-left font-sans pl-10">clinicaDental@dentalist.com<br>
+                3334445553<br>
+                horario de 7:00 am a 9:00 pm</p>
+            </div>
+        </div>
+    </div>
+    <div class=" dark:bg-gradient-to-r from-gray-700 to-slate-400  mt-20 w-full h-1"></div>
+    <footer class="dark:bg-gray-700 h-30 w-full">
+        <div class="container mx-auto p-4">
+            <p class="text-center font-sans text-gray-900 dark:text-white "> © 2023 Clinica dental</p>
+        </div>
+    </footer>
+    <div class=" dark:bg-gradient-to-r  from-slate-400  to-gray-700 w-full h-1"></div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}

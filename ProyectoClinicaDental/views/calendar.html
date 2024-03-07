@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas</title>
+    <link rel="stylesheet" href="../css/tailwind.min.css">
+</head>
+
+<body class="font-sans bg-gray-100">
+    <div class="container mx-auto mt-8">
+        <div class="flex justify-between  bg-gray-300 border">
+            <button id="prevMonth" class="px-4 py-2 bg-blue-500 mt-8 mb-8 ml-10 text-white">Anterior</button>
+            <h2 id="currentMonth" class="text-xl font-bold  mt-8 mb-8 ml-10 mr-10 text-center"></h2>
+            <button id="nextMonth" class="px-4 py-2 bg-blue-500  mt-8 mb-8 mr-10 text-white">Siguiente</button>
+        </div>
+        <div id="calendar" class="grid grid-cols-7 gap-4 border">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const calendarContainer = document.getElementById("calendar");
+            const prevMonthButton = document.getElementById("prevMonth");
+            const nextMonthButton = document.getElementById("nextMonth");
+            const currentMonthHeader = document.getElementById("currentMonth");
+
+            // Definicion para las fechas límite para el rango (dos años)
+            const today = new Date();
+            const startDate = new Date(today.getFullYear(), today.getMonth(), 1); // Primer día del mes actual
+            const endDate = new Date(today.getFullYear() + 2, today.getMonth(), 0); // Último día del mes dentro de dos años (se puede cambiar, el 2 representa los 2 años)
+
+            // Inicializar currentDate con la fecha actual
+            let currentDate = new Date();
+
+            function renderCalendar() {
+                const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+                const daysInMonth = new Date(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth() + 1, 0).getDate();
+                const firstDayOfWeek = firstDayOfMonth.getDay();
+                
+                //formato al titulo del mes
+                currentMonthHeader.textContent = new Intl.DateTimeFormat("es", { month: "long", year: "numeric" }).format(firstDayOfMonth);
+
+                calendarContainer.innerHTML = ""; // Limpiar el calendario antes de volver a renderizar
+
+                const daysOfWeek = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+                
+                //establece en el calendario los dias de la semana
+                for (let dayOfWeek of daysOfWeek) {
+                    const dayElement = document.createElement("div");
+                    dayElement.className = "col-span-1 text-center py-2 text-black-500 ";
+                    dayElement.textContent = dayOfWeek;
+                    calendarContainer.appendChild(dayElement);
+                }
+
+                // Celdas del mes anterior
+                for (let i = 0; i < firstDayOfWeek; i++) {
+                    const dayElement = document.createElement("div");
+                    dayElement.className = "col-span-1 text-center py-2 border text-gray-500";
+                    const prevMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), -i);
+                    dayElement.textContent = prevMonthDate.getDate();
+                    calendarContainer.appendChild(dayElement);
+                }
+
+                // Celdas del mes actual
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayElement = document.createElement("div");
+                    dayElement.className = "col-span-1 text-center py-2 border";
+
+                    if (day === new Date().getDate() && currentDate.getMonth() === new Date().getMonth()) {
+                        dayElement.classList.add("bg-blue-500", "text-white"); // Resalta el día actual
+                    }
+
+                    dayElement.textContent = day;
+                    calendarContainer.appendChild(dayElement);
+                }
+
+                // Celdas del mes siguiente
+                const cellsFromNextMonth = 7 - ((firstDayOfWeek + daysInMonth) % 7);
+                for (let i = 1; i <= cellsFromNextMonth; i++) {
+                    const dayElement = document.createElement("div");
+                    dayElement.className = "col-span-1 text-center py-2 border text-gray-500";
+                    const nextMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, i);
+                    dayElement.textContent = nextMonthDate.getDate();
+                    calendarContainer.appendChild(dayElement);
+                }
+            }
+
+            //visibilidad de los botones
+            function updateButtonVisibility() {
+                prevMonthButton.style.display = currentDate > startDate ? 'block' : 'none';
+                nextMonthButton.style.display = currentDate < endDate ? 'block' : 'none';
+            }
+
+            //boton de mes anterior
+            prevMonthButton.addEventListener("click", function () {
+                if (currentDate > startDate) {
+                    currentDate.setMonth(currentDate.getMonth() - 1);
+                    renderCalendar();
+                    updateButtonVisibility();
+                }
+            });
+
+            //boton mes siguiente
+            nextMonthButton.addEventListener("click", function () {
+                if (currentDate < endDate) {
+                    currentDate.setMonth(currentDate.getMonth() + 1);
+                    renderCalendar();
+                    updateButtonVisibility();
+                }
+            });
+            renderCalendar();
+            updateButtonVisibility();
+        });
+    </script>
+</body>
+
+</html>

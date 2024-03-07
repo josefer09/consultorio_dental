@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ventana de Administrador</title>
+    <link rel="stylesheet" href="../css/tailwind.min.css" />
+    <link rel="stylesheet" href="../css/styles.css">
+  </head>
+  <body class="min-h-100 bg-gray-200">
+    <div class="md:flex min-h-screen md:align-top">
+        <aside
+        class="md:w-2/5 lg:w-2/5 xl:w-1/5 bg-indigo-600 px-5 py-10 flex flex-col justify-between"
+      >
+        <div>
+          <h1
+            id="title"
+            class="uppercase text-white tracking-wide text-2xl font-bold mt-2"
+          >
+            Tooth-Soft
+          </h1>
+          <div id="welcome">
+            
+          </div>
+          <p class="mt-10 text-white">
+            Administra a tus pacientes de tu clinica con TOOTH-SOFT
+          </p>
+          <nav class="mt-8">
+            <a
+              href="./doctor.html"
+              class="px-3 py-1 text-white block hover:bg-indigo-700 hover:text-yellow-400"
+              >Inicio</a
+            >
+            <a
+              href="./appointmentByDoc.html"
+              class="px-3 py-1 text-white block hover:bg-indigo-700 hover:text-yellow-400 bg-indigo-700"
+              >Citas</a
+            >
+          </nav>
+        </div>
+
+        <!-- Boton para cerrar sesion -->
+        <div class="mt-auto flex items-center justify-start">
+          <button
+            id="logOut"
+            class="flex items-center justify-center w-30 h-30 px-2 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-blue-500 cursor-pointer focus:ring-blue-400"
+            title="cerrar-sesion"
+          >
+            <!-- SVG del ícono que proporcionaste -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+              />
+            </svg>
+            <p class="pl-2 text-white">Cerrar Sesión</p>
+          </button>
+        </div>
+        <!-- Fin del boton para cerrar sesion -->
+      </aside>
+      <!--sidebar-->
+      <main id="main" class="md:w-3/5 xl:w-4/5 px-5 py-10 bg-gray-200">
+        <h2 class="text-center my-5 titulo text-2xl">
+          Administrador de Citas
+        </h2>
+        <div class="container mt-5 p-5">
+          <div id="contenido" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="agregar-cita bg-white rounded-lg p-6 shadow-md">
+              <form id="formulario">
+                <legend class="mb-4 font-semibold">Datos del Paciente</legend>
+                <div class="mb-4">
+                  <label for="paciente" class="block mb-2">Paciente:</label>
+                  <select
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="id_user"
+                    name="userName"
+                  >
+                    <option value="" disabled selected>
+                      Seleccionar el email del Paciente
+                    </option>
+                    <!-- Agrega más opciones según necesites -->
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label for="doctor" class="block mb-2"
+                    >Doctor:</label
+                  >
+                  <select
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="id_employee"
+                    name="employee"
+                  >
+                    <option value="" disabled selected>
+                      Seleccionar el Medico
+                    </option>
+                    <!-- Agrega más opciones según necesites -->
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label for="fecha" class="block mb-2">Fecha:</label>
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    class="w-full rounded border border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="hora" class="block mb-2">Hora:</label>
+                  <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    class="w-full rounded border border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="motivo" class="block mb-2">Motivo de la consulta:</label>
+                  <textarea
+                    id="motivo"
+                    name="sintomas"
+                    class="w-full rounded border border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200"
+                  ></textarea>
+                </div>
+                <div class="mt-4">
+                  <button
+                    type="submit"
+                    class="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 uppercase font-bold"
+                  >
+                    Crear Cita
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <h2 id="administra" class="font-semibold text-xl mb-4">
+                Administra tus Citas
+              </h2>
+              <ul id="citas" class="list-none"></ul>
+            </div>
+          </div>
+          <!--.grid-->
+        </div>
+        <!--.container-->
+
+        <!-- Modal para roles -->
+        <div
+          id="myModalAppointmentEdit"
+          class="hidden fixed inset-0 bg-gray-300 bg-opacity-75 flex justify-center items-center bg-white rounded-lg p-6 shadow-md"
+        >
+          <div
+            class="bg-white p-4 opacity-0 transform scale-95 transition-all duration-300 w-1/2 mx-auto"
+          >
+            <button id="closeModalAppointmentEdit" class="float-right text-gray-700">
+              &times;
+            </button>
+              <form id="formularioEdit">
+                <legend class="mb-4 font-semibold">Datos del Paciente</legend>
+                <div class="mb-4">
+                  <label for="paciente" class="block mb-2">Paciente:</label>
+                  <select
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="id_userEdit"
+                    name="userName"
+                  >
+                    <option value="" disabled selected>
+                      Seleccionar el email del Paciente
+                    </option>
+                    <!-- Agrega más opciones según necesites -->
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label for="doctor" class="block mb-2"
+                    >Doctor:</label
+                  >
+                  <select
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="id_employeeEdit"
+                    name="employee"
+                  >
+                    <option value="" disabled selected>
+                      Seleccionar el Medico
+                    </option>
+                    <!-- Agrega más opciones según necesites -->
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label for="fecha" class="block mb-2">Fecha:</label>
+                  <input
+                    type="date"
+                    id="dateEdit"
+                    name="date"
+                    class="w-full rounded border border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="hora" class="block mb-2">Hora:</label>
+                  <input
+                    type="time"
+                    id="timeEdit"
+                    name="time"
+                    class="w-full rounded border border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="motivo" class="block mb-2">Motivo de la consulta:</label>
+                  <textarea
+                    id="motivoEdit"
+                    name="sintomas"
+                    class="w-full rounded border border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200"
+                  ></textarea>
+                </div>
+                <div class="mt-4">
+                  <button
+                    type="submit"
+                    class="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 uppercase font-bold"
+                  >
+                    Editar Cita
+                  </button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script
+      src="../apps/appointment.js"
+      type="module"
+    ></script>
+  </body>
+</html>

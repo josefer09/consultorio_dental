@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana de Paciente</title>
+    <link rel="stylesheet" href="../css/tailwind.min.css" />
+</head>
+  <body class="min-h-100 bg-gray-200">
+        <div class="md:flex min-h-screen md:align-top min-h-screen items-center justify-center">
+          
+          <!--sidebar-->
+          <main class="md:w-3/5 xl:w-4/5 px-5 py-10 bg-gray-200">
+            <h2 id="main" class="text-3xl font-light text-center py-2">Editar paciente</h2>
+    
+            <div class="bg-white p-4 transform scale-95 transition-all duration-300 w-1/2 mx-auto">
+              <form id="formulario" class="bg-white p-3" method="POST">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre</label>
+                    <input 
+                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Nombre"
+                    />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="apellido">Apellido</label>
+                    <input 
+                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="lastname"
+                        name="lastname"
+                        type="text"
+                        placeholder="Apellido"
+                    />
+                </div>
+      
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="edad">Edad</label>
+                    <input 
+                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="age"
+                        name="age"
+                        type="number"
+                        placeholder="Edad"
+                    />
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-gray-700 text-sm font-bold mb-2" for="celular">Celular</label>
+                  <input 
+                      class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      id="phone"
+                      name="phone"
+                      type="number"
+                      placeholder="Celular"
+                  />
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="direccion">Direccion</label>
+                <input 
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="address"
+                    name="address"
+                    type="text"
+                    placeholder="Direccion"
+                />
+            </div>
+      
+                <div class="mb-4">
+                  <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Correo</label>
+                  <select 
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="email"
+                    name="email"
+                  >
+                    <option value="" disabled selected>Selecciona un Correo</option>
+      
+                    <!-- Agrega más opciones según necesites -->
+                  </select>
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-gray-700 text-sm font-bold mb-2" for="gender">Género</label>
+                  <select
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="gender" name="gender">
+                    <option value="" disabled selected>Selecciona un Género</option>
+                    <!-- Puedes agregar más opciones según necesites -->
+                  </select>
+                </div>
+      
+                <input
+                    type="submit"
+                    class="bg-blue-600 hover:bg-blue-800 w-full mt-5 p-2 text-white uppercase font-bold"
+                    value="Registrar Empleado"
+                />
+            </form>
+            </div>
+            
+            
+            
+          </main>
+        </div>
+        <script src="../apps/patientEdit.js" type="module"></script>
+    </body>
+</html>

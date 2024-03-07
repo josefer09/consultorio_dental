@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas de usuario</title>
+    <link rel="stylesheet" href="../css/tailwind.min.css">
+</head>
+<body>
+  <header class="bg-indigo-800 text-white py-4 flex justify-between items-center h-24">
+    <div id="welcome" class="ml-8 mr-8"></div>
+    <div class="mt-auto flex items-center justify-start">
+      <button id="logOut" class="flex items-center justify-center w-30 h-30 px-2 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-indigo-500 cursor-pointer focus:ring-blue-400" title="cerrar-sesion">
+        <!-- SVG del ícono que proporcionaste -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+        </svg>
+        <a href="doctor.html" class="pl-2 text-white mr-8">Salir</a>
+      </button>
+    </div>
+  </header>
+  <main class=" px-5 py-10 bg-gray-100">
+    <h2 id="main" class="text-3xl font-light text-center py-2">Generar Nota Medica</h2>
+
+    <div class="bg-white p-4 transform scale-95 transition-all duration-300 w-1/2 mx-auto">
+        <form id="formulario" method="POST">
+            <legend class="mb-4 font-semibold">Datos del Paciente</legend>
+            <div class="mb-4">
+              <label for="paciente" class="block mb-2">Paciente:</label>
+              <select
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="id_user"
+                name="userName"
+              >
+                <option value="" disabled selected>
+                  Seleccionar el email del Paciente
+                </option>
+                <!-- Agrega más opciones según necesites -->
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="doctor" class="block mb-2"
+                >Doctor:</label
+              >
+              <select
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="id_employee"
+                name="employee"
+              >
+                <option value="" disabled selected>
+                  Seleccionar el Medico
+                </option>
+                <!-- Agrega más opciones según necesites -->
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="fecha" class="block mb-2">Fecha de la cita:</label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                class="w-full rounded border border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200"
+              />
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Procedimiento</label>
+                <select 
+                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="procedure"
+                  name="email"
+                >
+                  <option value="" disabled selected>Selecciona un Procedimiento</option>
+    
+                  <!-- Agrega más opciones según necesites -->
+                </select>
+              </div>
+            <div class="mb-4">
+              <label for="motivo" class="block mb-2">Nota de la consulta:</label>
+              <textarea
+                id="nota"
+                name="sintomas"
+                class="w-full rounded border border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200"
+              ></textarea>
+            </div>
+            <div class="mt-4 flex flex-col items-center">
+                <button
+                  type="submit"
+                  class="bg-indigo-500 text-white px-4 py-2 rounded w-full mb-2 hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 uppercase font-bold"
+                >
+                  Generar Nota
+                </button>
+              </div>
+              
+          </form>
+          <div class="mt-4 flex justify-center">
+            <button
+              id="imprimir"
+              class="bg-yellow-500 text-white px-4 py-1 rounded w-1/3 hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 uppercase font-bold"
+            >
+              Imprimir Nota
+            </button>
+          </div>
+    </div>
+    
+    
+    
+  </main>
+</div>
+<script src="../apps/viewAppointment.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#contenedor-principal {
+    min-height: 100%;
+    position: relative;
+}
+
+.barra{
+    height: 44px;
+    width: 12px;
+    background-color: blue;
+}
+
+.vertical-line {
+    height: 100px; 
+    border-left: 2px solid black; 
+}
+
+.border-gradient {
+    background: linear-gradient(to bottom, white 0%, white 50%, black 50%, black 100%, white 100%);
+  }
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 500px; /* Altura deseada de la imagen parallax */
+}
+
+.parallax-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.5; 
+  transition: opacity 0.0s ease-in-out; 
+}
+
+.dynamic-image-container {
+    height: 270px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px; 
+}
+
+.dynamic-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.15s ease-in-out;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 100%; 
+    margin: auto;
+    overflow: hidden;
+    height: 742px; 
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    transition: opacity 1s ease-in-out;
+    animation: fadeEffect 0.8s ease-in-out;
+    position: relative;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-dots {
+    position: absolute; 
+    bottom: 10px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot {
+    background-color: #717171;
+}
+
+.image-container {
+    height: 400px; 
+    overflow: hidden;
+}
+
+.image-static {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

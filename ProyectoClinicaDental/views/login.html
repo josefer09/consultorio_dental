@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="../css/tailwind.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="min-h-100 min-w-100 bg-gray-200">
+    <div class="xl:flex min-h-screen  xl:align-top">
+        <main class="  xl:w-4/5 px-5 py-20 bg-gray-200 mx-auto">
+            <h2 class="text-3xl font-light text-center">Ingresa Tus Datos</h2>
+
+            <div class="flex flex-col mt-10 items-center">
+                <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 w-10/12 md:w-8/12 lg:w-6/12">
+                    <div class=" shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+                        <form id="formulario" class="bg-white p-3" method="POST">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Correo</label>
+                                <input 
+                                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="email"
+                                    name="email"
+                                    type="text"
+                                    placeholder="Email"
+                                />
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Contraseña</label>
+                                <input 
+                                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    placeholder="Contraseña"
+                                />
+                            </div>
+                            <input
+                                type="submit"
+                                class="bg-blue-600 hover:bg-blue-800 w-full mt-3 p-2 text-white uppercase font-bold"
+                                value="Ingresar"
+                            />
+                            <div class="text-center">
+                                <a href="newUser.html" class="text-black block mt-2">¿No tienes una cuenta?<span class="text-blue-500 hover:underline">Crea una aquí</span></a>
+                                    </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="spinner" class="flex items-center justify-center py-4"></div>
+        </main>
+    </div>
+    
+    <script src="../apps/login.js" type="module"></script>
+</body>
+</html>

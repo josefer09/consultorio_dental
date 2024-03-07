@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ventana de Administrador</title>
+    <link rel="stylesheet" href="../css/tailwind.min.css" />
+  </head>
+  <body class="min-h-100 bg-gray-200">
+    <div class="md:flex min-h-screen md:align-top">
+      <aside class="md:w-2/5 lg:w-2/5 xl:w-1/5 bg-blue-600 px-5 py-10 flex flex-col justify-between">
+        <div>
+          <h1
+          id="title"
+          class="uppercase text-white tracking-wide text-2xl font-bold mt-2"
+        >
+          Tooth-Soft
+        </h1>
+        <div id="welcome"></div>
+        <p class="mt-10 text-white">
+          Administra a los clientes y usuarios de tu clinica con TOOTH-SOFT
+        </p>
+        <nav class="mt-8">
+          <a href="./user.html"
+          class="px-3 py-1 text-white block hover:bg-blue-700 hover:text-yellow-400">Usuarios</a>
+          <a
+            href="./administration.html"
+            class="px-3 py-1 text-white block hover:bg-blue-700 hover:text-yellow-400 bg-blue-700"
+            >Empleados</a
+          >
+          <a
+
+            href="./roles.html"
+            class="px-3 py-1 text-white block hover:bg-blue-700 hover:text-yellow-400"
+            >Roles</a
+          >
+          <a
+            href="./specialtys.html"
+            class="px-3 py-1 text-white block hover:bg-blue-700 hover:text-yellow-400"
+            >Especialidades</a
+           >
+          <a
+            href="./patient.html"
+            class="px-3 py-1 text-white block hover:bg-blue-700 hover:text-yellow-400"
+            >Pacientes</a
+          >
+          <a
+            href="./procedure.html"
+            class="px-3 py-1 text-white block hover:bg-blue-700 hover:text-yellow-400"
+            >Procedimientos</a
+          >
+          <a
+            href="./appointment.html"
+            class="px-3 py-1 text-white block hover:bg-blue-700 hover:text-yellow-400"
+            >Citas</a
+          >
+        </nav>
+        </div>
+
+        <!-- Boton para cerrar sesion -->
+        <div class="mt-auto flex items-center justify-start">
+          <button id="logOut" class="flex items-center justify-center w-30 h-30 px-2 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-blue-500 cursor-pointer focus:ring-blue-400" title="cerrar-sesion">
+            <!-- SVG del ícono que proporcionaste -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+            </svg>
+            <p class="pl-2 text-white">Cerrar Sesión</p>
+          </button>
+        </div>
+        <!-- Fin del boton para cerrar sesion -->
+      </aside>
+      <!--sidebar-->
+      <main class="md:w-3/5 xl:w-4/5 px-5 py-10 bg-gray-200">
+        <h2 id="main" class="text-3xl font-light text-center">Empleados</h2>
+
+        <div class="flex flex-col mt-10">
+          <div class="py-2 overflow-x-auto">
+            <div
+              class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200"
+            >
+              <table class="min-w-full">
+                <thead class="bg-gray-100">
+                  <tr>
+                    <th
+                      class="px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider"
+                    >
+                      Nombre
+                    </th>
+                    <th
+                      class="px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider"
+                    >
+                      Matricula
+                    </th>
+                    <th
+                      class="px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider"
+                    >
+                      Edad
+                    </th>
+                    <th
+                      class="px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider"
+                    >
+                      Rol
+                    </th>
+                    <th
+                      class="px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider"
+                    >
+                      Especialidad
+                    </th>
+                    <th
+                      class="px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider max-w-xs truncate"
+                    >
+                      Correo
+                    </th>
+                    <th
+                      class="px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider"
+                    >
+                      Acciones
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="employee-list" class="bg-white"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center py-2">
+          <button
+            id="openModal"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Nuevo Empleado
+          </button>
+        </div>
+        <div
+          id="myModal"
+          class="hidden fixed inset-0 bg-gray-300 bg-opacity-75 flex justify-center items-center"
+        >
+          <div
+            class="bg-white p-4 opacity-0 transform scale-95 transition-all duration-300 w-1/2 mx-auto"
+          >
+            <button id="closeModal" class="float-right text-gray-700">
+              &times;
+            </button>
+            <form id="formulario-employee" class="bg-white p-3" method="POST">
+              <div class="mb-4">
+                <label
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  for="nombre"
+                  >Nombre</label
+                >
+                <input
+                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Nombre del Empleado"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  for="email"
+                  >Numero de licencia</label
+                >
+                <input
+                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="licenseNumber"
+                  name="licenseNumber"
+                  type="number"
+                  placeholder="Numero de licensia"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  for="telefono"
+                  >Edad</label
+                >
+                <input
+                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="age"
+                  name="age"
+                  type="number"
+                  placeholder="Edad del Empleado"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  for="role"
+                  >Rol</label
+                >
+                <select
+                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="role"
+                  name="role"
+                >
+                  <option value="" disabled selected>Selecciona un Rol</option>
+                  <!-- Agrega más opciones según necesites -->
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  for="specialty"
+                  >Especialidad</label
+                >
+                <select
+                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="specialty"
+                  name="specialty"
+                >
+                  <option value="" disabled selected>
+                    Selecciona una Especialidad
+                  </option>
+
+                  <!-- Agrega más opciones según necesites -->
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                  for="email"
+                  >Correo</label
+                >
+                <select
+                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="email"
+                  name="email"
+                >
+                  <option value="" disabled selected>
+                    Selecciona un Correo
+                  </option>
+
+                  <!-- Agrega más opciones según necesites -->
+                </select>
+              </div>
+
+              <input
+                type="submit"
+                class="bg-blue-600 hover:bg-blue-800 w-full mt-5 p-2 text-white uppercase font-bold"
+                value="Registrar Empleado"
+              />
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script
+      src="/ProyectoClinicaDental/apps/administration.js"
+      type="module"
+    ></script>
+  </body>
+</html>
