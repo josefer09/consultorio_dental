@@ -50,51 +50,55 @@ En esta sección, puedes listar enlaces a documentos relevantes y otros recursos
 
 Nuestra motivación para la elaboración del software en cuestión, van de la mano con múltiples desafíos que enfrentamos en los consultorios hoy en día, como lo son la gestión manual de muchos de los procesos de estos centros de salud, como lo son el manejo de la citas en cuadernos, las facturaciones o el seguimiento de tratamientos.
 
-## Instalación e instrucciones de uso
+## Funciones y pantallas
 
-Para poder probar nuestro repositorio desde su computador, le recomendamos seguir las siguientes instrucciones:
-
-- **Instalación de la BD**
-  
-    Una vez tengamos clonado nuestro repositorio, deberemos importar la bd que viene incluido en el, para esto deberemos abrir nuestro MySQL Workbench, entrar a nuesra Local Instance
-
-    y posteriormente dirigirnos a la pestaña administration y seleccionar la opción de DataImport/Restore.
-
-    ![image](https://github.com/Ophion09/ConsultorioDental_TopicoWeb/assets/101837336/eb19e485-1ff4-452f-9bce-0dbad039d007)
-
-    Posterior a esto, empezaremos con la importanción, para esto seleccionaremos los ... del primer selector, y seleccionaremos la carpeta db_ClinicaDentalVFinal, que se encuentra dentro
-
-    del repositorio clonado
-
-    ![image](https://github.com/Ophion09/ConsultorioDental_TopicoWeb/assets/101837336/f1f43835-4589-486b-b4ef-0e0d753d8013)
+Nuestro sistema cuenta con multiples usuario, los cuales todo el tiempo se estaran validando sus credenciales para las restricciones del sistema, estas son algunas de las siguientes funcionalidades:
 
 
-    Seleccionaremos Aceptar, posterior a esto seleccionaremos la opcion de new y escribiremos el nombre de "db_clinicadental", esto creara una nueva schema en nuestro MySql local
+### Login general
 
-    que a su vez sera el cascaron para importar los datos y estructura de la db del repositorio.
+<p>
+  <img src="/Documentos/login.PNG" alt="pantallaCliente"/>
+</p>
 
-    ![image](https://github.com/Ophion09/ConsultorioDental_TopicoWeb/assets/101837336/b254d231-9877-48e8-a400-349b20649e2c)
-
-
-    Con esto podremos seleccionar la opción de Star Import y se nos comenzara la importación de la bd correctamente:
-
-    ![image](https://github.com/Ophion09/ConsultorioDental_TopicoWeb/assets/101837336/0eb25ea8-f803-4758-a550-894136bd62e0)
+Todos los usuario accederan mediante este login, dependiendo de las credenciales de cada uno, sera redirigido a una pantalla diferente con accesos restringidos
 
 
-    Exito:
+### Usuario Cliente
 
-    ![image](https://github.com/Ophion09/ConsultorioDental_TopicoWeb/assets/101837336/04f9bc83-6013-4825-8d84-fb7fcbbf84c4)
-  
+<p>
+  <img src="/Documentos/cliente.PNG" alt="pantallaCliente"/>
+</p>
 
-- **Modificación en nuestra db.js**
-  
-    Con nuestra base de datos importada solo queda modificar el archivo _db.js_ dentro de la carpeta _utils_.
+El cliente solo tendra acceso a consultar sus proximas citas, poder visualizar las fechas y un poco mas de informacion, como quien sera su doctor
 
-    Dentro del archivo debera modificar el argumento de _**"admin"**_, esto debera ser cambiada por la contraseña de su MySQL, de ser necesarios, los otros argumentos
 
-    tambien pueden ser cambiados por los equivalentes a su configuración de MySQL.
+### Usuario Administrador
 
-    ![image](https://github.com/Ophion09/ConsultorioDental_TopicoWeb/assets/101837336/687332c0-f9ef-4dd5-8e8d-11bdf18f369b)
+<p>
+  <img src="/Documentos/admin.PNG" alt="pantallaCliente"/>
+</p>
+
+El usuario Administrador sera quien maneje la gestion general del sistema, manejando y administrando los servicios, consultas, roles, usuario y empleados que conforman el sistema. Asi como tambien podran generar citas para los pacientes del sistema
+
+
+<p>
+  <img src="/Documentos/admin_empleados.PNG" alt="pantallaCliente"/>
+</p>
+
+
+### Usuario Doctor
+
+<p>
+  <img src="/Documentos/doctor.PNG" alt="pantallaCliente"/>
+</p>
+
+El Doctor, como pantalla principal tendra sus proximas consultas, asi como podra iniciar una consulta de una cita llevando a cabo los siguientes campos:
+
+<p>
+  <img src="/Documentos/doctor.PNG" alt="pantallaCliente"/>
+</p>
+
 
 ## Contacto
 
